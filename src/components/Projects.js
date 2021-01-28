@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "react-router-dom";
 import sanityClient from "../client";
 import { ContainerStyle } from "../components/Navbar";
 import { motion } from "framer-motion";
@@ -36,8 +37,18 @@ const Projects = () => {
               <div className="project-info">
                 <h2>{project.title}</h2>
                 <p>{project.description}</p>
-                <p>{project.githubLink}</p>
-                <p>{project.websiteLink}</p>
+
+                <p>
+                  <a target="_blank" href={`${project.githubLink}`}>
+                    Github
+                  </a>
+                </p>
+                <p>
+                  <a target="_blank" href={`${project.websiteLink}`}>
+                    Live
+                  </a>
+                </p>
+
                 <div className="tags">
                   {project.tags.map((tag) => (
                     <p>{tag}</p>
